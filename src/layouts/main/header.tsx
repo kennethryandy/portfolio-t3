@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import fira_code from "@/lib/fonts";
 import { type FC } from "react";
 
 const Header: FC = () => {
@@ -8,11 +9,31 @@ const Header: FC = () => {
         <nav className="2xl:max-w-screen-2xl mx-auto md:px-3.5 px-4 py-4 flex items-center justify-between w-full">
           <p>Logo</p>
           <ul className="flex items-center gap-8">
-            <li>About</li>
-            <li>Skill</li>
-            <li>Work</li>
-            <li>Contact</li>
-            <li>Resume</li>
+            <li>
+              <a href="#" className={`${fira_code.className}`}>
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#" className={`${fira_code.className}`}>
+                Skill
+              </a>
+            </li>
+            <li>
+              <a href="#" className={`${fira_code.className}`}>
+                Work
+              </a>
+            </li>
+            <li>
+              <a href="#" className={`${fira_code.className}`}>
+                Contact
+              </a>
+            </li>
+            <li>
+              <a href="#" className={`${fira_code.className}`}>
+                Resume
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
