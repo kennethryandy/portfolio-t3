@@ -12,16 +12,23 @@ const Loading: FC<LoadingProps> = ({ completeLoading }) => {
 
   useGSAP(
     () => {
-      const tl = gsap.timeline({ defaults: { ease: Back.easeIn.config(1) } });
+      const tl = gsap.timeline();
       tl.to(".logo", { opacity: 1 });
-      tl.to(".logo__rect", {
-        strokeDashoffset: 0,
-        strokeDasharray: 200,
-        yoyo: true,
-        duration: 2.4,
+      tl.fromTo(
+        ".logo__rect",
+        { strokeDasharray: 34, strokeDashoffset: 10 },
+        {
+          strokeDasharray: 150,
+          duration: 1.6,
+          ease: "back.out",
+        },
+      );
+      tl.to(".logo", {
+        delay: -0.8,
+        scale: 0,
+        opacity: 0,
+        ease: Back.easeIn.config(1),
       });
-      tl.to(".logo__letter", { opacity: 1, stagger: 0.02 });
-      tl.to(".logo", { scale: 0, opacity: 0 });
       tl.eventCallback("onComplete", function () {
         completeLoading();
       });
