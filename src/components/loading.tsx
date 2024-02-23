@@ -12,19 +12,18 @@ const Loading: FC<LoadingProps> = ({ completeLoading }) => {
 
   useGSAP(
     () => {
-      const tl = gsap.timeline();
+      const tl = gsap.timeline({ defaults: { ease: Back.easeIn.config(1) } });
       tl.to(".logo", { opacity: 1 });
       tl.fromTo(
         ".logo__rect",
-        { strokeDasharray: 34, strokeDashoffset: 10 },
+        { strokeDasharray: 35, strokeDashoffset: 125 },
         {
-          strokeDasharray: 150,
-          duration: 1.6,
-          ease: "back.out",
+          strokeDashoffset: 0,
+          strokeDasharray: 140,
+          duration: 1.2,
         },
       );
       tl.to(".logo", {
-        delay: -0.8,
         scale: 0,
         opacity: 0,
         ease: Back.easeIn.config(1),
@@ -41,7 +40,7 @@ const Loading: FC<LoadingProps> = ({ completeLoading }) => {
       className="h-screen w-full overflow-hidden flex items-center justify-center"
       ref={container}
     >
-      <Logo className="w-[60px] h-[60px] opacity-0" />
+      <Logo className="opacity-0" width={80} height={80} />
     </div>
   );
 };

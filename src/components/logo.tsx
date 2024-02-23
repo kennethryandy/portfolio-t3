@@ -3,13 +3,17 @@ import { type FC } from "react";
 
 interface LogoProps {
   className?: string;
+  width?: number;
+  height?: number;
 }
 
-const Logo: FC<LogoProps> = ({ className = "" }) => {
+const Logo: FC<LogoProps> = ({ className = "", width = 36, height = 35 }) => {
   return (
     <svg
-      height="36"
-      width="36"
+      height={height}
+      width={width}
+      // height="36"
+      // width="36"
       viewBox="0 0 38 38"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
