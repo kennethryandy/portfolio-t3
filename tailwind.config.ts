@@ -22,7 +22,7 @@ const config = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
+        background: "hsl(var(--background), var(--tw-bg-opacity, 1))",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -82,6 +82,9 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "rubber-band": "rubber-band 1s alternate ease-out"
       },
+      boxShadow: {
+        "hard": "0 0 #0000, 0 0 #0000, inset 0 1px 0 0 rgba(148, 179, 184, 0.1)"
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
