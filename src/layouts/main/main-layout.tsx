@@ -1,27 +1,25 @@
-"use client";
-import { type ReactNode, type FC, useState } from "react";
+import { type ReactNode, type FC } from "react";
 import Header from "./header";
 import Footer from "./footer";
-import Loading from "@/components/loading";
 
 interface MainLayoutProps {
   children: ReactNode;
 }
 
 const MainLayout: FC<MainLayoutProps> = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const completeLoading = () => {
-    setIsLoading(false);
-  };
-
-  if (isLoading) {
-    return <Loading completeLoading={completeLoading} />;
-  }
-
   return (
     <>
-      <Header />
-      <main className="container">{children}</main>
+      <a
+        // href="#experiences"
+        className="absolute z-0 left-0 top-0 rounded border border-primary text-primary px-4 py-2 -translate-x-full active:translate-x-0 focus-visible:translate-x-0"
+        // tabIndex={0}
+      >
+        SKIP TO CONTENT
+      </a>
+      <div className="min-h-screen lg:max-w-screen-xl my-6 px-6 lg:my-0 lg:mx-auto lg:flex lg:justify-between lg:gap-2">
+        <Header />
+        <main className="relative z-40 lg:py-20 lg:w-1/2">{children}</main>
+      </div>
       <Footer />
     </>
   );
