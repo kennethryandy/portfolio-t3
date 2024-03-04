@@ -37,19 +37,24 @@
 
   .dark {
     /* --background: 222.2 84% 4.9%; */
-    --background: 216, 65%, 11%;
+    /* --background: 216, 65%, 11%; */
+    --background: 211, 48%, 10%;
+    /* --background: 207, 63%, 8%; */
     --foreground: 210 40% 98%;
 
     /* --card: 222.2 84% 4.9%; */
     --card: 216, 65%, 11%;
-    --card-foreground: 210 40% 98%;
+    --card-foreground: 210 65% 12%;
+    /* --card-foreground: 210 40% 98%; */
 
     /* --popover: 222.2 84% 4.9%; */
     --popover: 216, 65%, 11%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* --primary: 166 100% 69.6%; */
+    --primary: 187 73% 63%;
+    --primary-foreground: 210 40% 10%;
+    /* --primary-foreground: 222.2 47.4% 11.2%; */
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -57,7 +62,8 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
+    /* --accent: 217.2 32.6% 17.5%; */
+    --accent: 205 18% 40%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -73,7 +79,99 @@
   * {
     @apply border-border;
   }
+
+  @media (pointer: fine) {
+    ::-webkit-scrollbar,
+    ::-webkit-scrollbar-corner {
+      color: hsl(var(--primary));
+      background: hsl(var(--accent) / 0.08);
+      width: 12px;
+      height: 12px;
+    }
+    ::-webkit-scrollbar-button {
+      height: 0;
+      width: 0;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: content-box currentColor;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      color: hsl(var(--muted-foreground));
+      min-height: 48px;
+      min-width: 48px;
+    }
+
+    @supports not (selector(::-webkit-scrollbar)) {
+      * {
+        scrollbar-color: hsl(var(--muted-foreground)) transparent;
+        scrollbar-gutter: auto;
+        scrollbar-width: thin;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-slate-200;
+  }
+
+  .right-underline-hover {
+    position: relative;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  }
+
+  .right-underline-hover:hover {
+    color: rgb(100, 255, 218);
+  }
+
+  .right-underline-hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: rgb(100, 255, 218);
+    transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  }
+
+  .right-underline-hover:hover::after {
+    width: 100%;
+  }
+
+  .nav-link {
+    @apply py-4;
+    display: flex;
+    align-items: center;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  }
+
+  .nav-link.active .nav-link-line,
+  .nav-link:hover .nav-link-line {
+    @apply w-14;
+    @apply border-primary;
+  }
+
+  .nav-link.active,
+  .nav-link:hover {
+    @apply text-primary;
+  }
+
+  .nav-link-line {
+    @apply w-8;
+    @apply border-slate-300;
+    @apply mr-1;
+    border-bottom-width: 1px;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    display: inline-block;
+  }
+
+  .custom-list-opacity:hover + li {
+    opacity: 0.85 !important;
   }
 }
