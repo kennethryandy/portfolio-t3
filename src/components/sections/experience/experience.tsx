@@ -1,49 +1,10 @@
 import { type FC } from "react";
-import { Badge } from "../ui/badge";
+import { Badge } from "../../ui/badge";
+import { api } from "@/trpc/server";
 
-const experiences = [
-  {
-    id: 1,
-    order: 1,
-    title: "Rooche Digital",
-    year: ["2018 - PRESENT"],
-    role: "Front-end Developer",
-    description:
-      "dolor sit amet consectetur adipisicing elit. Obcaecati et debitis ullam reiciendis, labore tempore rem quod ipsam iste nostrum! Hic ipsa soluta accusantium corrupti vel quia laudantium nisi amet.\n dolor sit amet consectetur adipisicing elit. Obcaecati et debitis ullam reiciendis \n dolor sit amet consectetur adipisicing elit. Obcaecati et debitis ullam reiciendis, labore tempore rem quod ipsam iste nostrum! Hic ipsa soluta accusantium corrupti vel quia laudantium nisi amet.",
-    technologies: ["Javascript", "HTML & SCSS", "React", "React Native"],
-  },
-  {
-    id: 2,
-    order: 2,
-    title: "Lorem ipsum2",
-    year: ["JULY - DEC 2018"],
-    role: "Fullstack Developer - Senior Developer",
-    description:
-      "dolor sit amet consectetur adipisicing elit. Obcaecati et debitis ullam reiciendis, labore tempore rem quod ipsam iste nostrum! Hic ipsa soluta accusantium corrupti vel quia laudantium nisi amet.\n dolor sit amet consectetur adipisicing elit. Obcaecati et debitis ullam reiciendis \n dolor sit amet consectetur adipisicing elit. Obcaecati et debitis ullam reiciendis, labore tempore rem quod ipsam iste nostrum! Hic ipsa soluta accusantium corrupti vel quia laudantium nisi amet.",
-    technologies: [
-      "Javascript",
-      "HTML & SCSS",
-      "React",
-      "React Native",
-      "Javascript",
-      "HTML & SCSS",
-      "React",
-      "React Native",
-    ],
-  },
-  {
-    id: 3,
-    order: 2,
-    title: "Lorem ipsum2",
-    year: ["JULY - DEC 2018"],
-    role: "Fullstack Developer - Senior Developer",
-    description:
-      "dolor sit amet consectetur adipisicing elit. Obcaecati et debitis ullam reiciendis, labore tempore rem quod ipsam iste nostrum! Hic ipsa soluta accusantium corrupti vel quia laudantium nisi amet.\n dolor sit amet consectetur adipisicing elit. Obcaecati et debitis ullam reiciendis \n dolor sit amet consectetur adipisicing elit. Obcaecati et debitis ullam reiciendis, labore tempore rem quod ipsam iste nostrum! Hic ipsa soluta accusantium corrupti vel quia laudantium nisi amet.",
-    technologies: ["Javascript", "HTML & SCSS", "React", "React Native"],
-  },
-];
+const ExperienceSection: FC = async ({}) => {
+  const experiences = await api.experience.getAll.query();
 
-const ExperienceSection: FC = ({}) => {
   return (
     <section id="experiences" className="section mb-28 lg:scroll-mt-28">
       <div className="block lg:hidden py-4 sticky -top-1 z-50 bg-background bg-opacity-85 backdrop-blur-sm -mx-6 px-6 border rounded-none border-b-0 border-x-0">

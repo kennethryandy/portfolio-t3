@@ -1,10 +1,12 @@
 import MainLayout from "@/layouts/main/main-layout";
 import {
   AboutSection,
+  ExperienceLoading,
   ExperienceSection,
   ProjectSection,
   ReachOutSection,
 } from "@/components/sections";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -12,7 +14,9 @@ export default function Home() {
       <div>
         <AboutSection />
 
-        <ExperienceSection />
+        <Suspense fallback={<ExperienceLoading />}>
+          <ExperienceSection />
+        </Suspense>
 
         <ProjectSection />
 
