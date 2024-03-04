@@ -50,12 +50,12 @@ const Nav: FC = () => {
   }, []);
 
   return (
-    <nav className="hidden lg:block uppercase mt-16 max-w-xs">
+    <nav className="hidden lg:block uppercase mt-14 max-w-xs">
       <ul>
         <li>
           <a
             href="#about"
-            className={`${fira_code.className} ${activeSection === "about" ? "active" : ""} text-xs font-medium tracking-wide nav-link`}
+            className={`${fira_code.className} ${activeSection === "about" ? "active" : ""} text-xs font-medium tracking-wider nav-link`}
           >
             <span className="nav-link-line" />
             about
@@ -64,7 +64,7 @@ const Nav: FC = () => {
         <li>
           <a
             href="#experiences"
-            className={`${fira_code.className} ${activeSection === "experiences" ? "active" : ""} text-xs font-medium tracking-wide nav-link outline-none`}
+            className={`${fira_code.className} ${activeSection === "experiences" ? "active" : ""} text-xs font-medium tracking-wider nav-link outline-none`}
           >
             <span className="nav-link-line" />
             experience
@@ -73,7 +73,7 @@ const Nav: FC = () => {
         <li>
           <a
             href="#projects"
-            className={`${fira_code.className} ${activeSection === "projects" ? "active" : ""} text-xs font-medium tracking-wide nav-link outline-none`}
+            className={`${fira_code.className} ${activeSection === "projects" ? "active" : ""} text-xs font-medium tracking-wider nav-link outline-none`}
           >
             <span className="nav-link-line" />
             projects
@@ -82,7 +82,7 @@ const Nav: FC = () => {
         <li>
           <a
             href="#reach-out"
-            className={`${fira_code.className} ${activeSection === "reach-out" ? "active" : ""} text-xs font-medium tracking-wide nav-link outline-none`}
+            className={`${fira_code.className} ${activeSection === "reach-out" ? "active" : ""} text-xs font-medium tracking-wider nav-link outline-none`}
           >
             <span className="nav-link-line" />
             Reach out
