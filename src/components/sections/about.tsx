@@ -10,8 +10,8 @@ const AboutSection: FC = ({}) => {
         <div>
           <p className="text-slate-400 mb-4 text-justify">
             In early 2015, I stumbled into the captivating world of programming
-            crafting blog websites dedicated to a favorite game with HTML and
-            CSS. My adventure through the complex worlds of JavaScript, PHP,
+            crafting blog websites dedicated to a favorite game with HTML, CSS,
+            and PHP. My adventure through the complex worlds of JavaScript,
             Java, C, and C++ has been nothing short of thrilling ever since.
             From self-study to professional roles, I began my career building
             software for a{" "}

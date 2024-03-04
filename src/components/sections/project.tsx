@@ -83,12 +83,12 @@ const ProjectSection: FC = ({}) => {
       <div className="block lg:hidden py-4 sticky -top-1 z-50 bg-background bg-opacity-85 backdrop-blur-sm -mx-6 px-6 border rounded-none border-b-0 border-x-0">
         <h2 className="font-bold uppercase text-sm tracking-wide">Projects</h2>
       </div>
-      <ul className="space-y-16">
+      <ul className="space-y-16 group/items">
         {projects.map((project) => (
           <li
             role="list"
             key={project.id}
-            className="peer peer-hover:opacity-65 custom-list-opacity"
+            className="group-hover/items:opacity-45 custom-list-opacity transition-opacity"
           >
             <div className="grid gap-1 relative sm:gap-4 sm:grid-cols-8 group">
               <div className="absolute z-0 left-0 -right-4 -inset-y-4 rounded-md transition hidden lg:block group-hover:bg-accent/25 group-hover:drop-shadow-lg group-hover:shadow-hard"></div>

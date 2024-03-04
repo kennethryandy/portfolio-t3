@@ -171,7 +171,11 @@
     display: inline-block;
   }
 
-  .custom-list-opacity:hover + li {
-    opacity: 0.85 !important;
+  .custom-list-opacity:has(:hover) {
+    opacity: 1 !important;
+  }
+
+  .custom-list-opacity:has(:hover) + li {
+    opacity: 0.75 !important;
   }
 }

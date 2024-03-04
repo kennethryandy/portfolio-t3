@@ -10,15 +10,19 @@ const ReachOutSection: FC = ({}) => {
         <h2 className="font-bold uppercase text-sm tracking-wide">Reach Out</h2>
       </div>
       <div className="lg:max-w-6xl mx-auto lg:px-4">
-        <h2 className="text-4xl font-bold">Get in touch</h2>
-        <div className="mt-8">
-          <div>
+        <h2 className="text-3xl font-bold">Ping me!</h2>
+        <div className="mt-4">
+          <div className="space-y-3">
             <p className="text-gray-400">
-              Want to work together or have any questions? Have a question or
-              want to work together?
+              Want to say &quot;Hey!&quot;? Got something you&apos;d like to
+              ask? New project or opportunity?
+            </p>
+            <p className="text-gray-400">
+              Get your space suit ready and tell me your ideas to develop your
+              dream application.
             </p>
           </div>
-          <form className="space-y-4 mt-4">
+          <form className="space-y-3 mt-4">
             <Input placeholder="Name" type="text" />
             <Input placeholder="Email" type="email" />
             <Input placeholder="Subject" type="text" />
