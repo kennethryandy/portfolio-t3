@@ -6,15 +6,19 @@ generator client {
 }
 
 datasource db {
-    provider = "sqlite"
+    provider = "postgresql"
     url      = env("DATABASE_URL")
 }
 
-model Post {
-    id        Int      @id @default(autoincrement())
-    name      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
 
-    @@index([name])
+model Experience {
+    id              String @id @default(cuid())
+    order           Int @unique
+    title           String
+    year            String[] @db.VarChar(255)
+    role            String @db.VarChar(255)
+    description     String
+    technologies    String[] @db.VarChar(255)
+    created_at      DateTime @default(now())
+    updated_at      DateTime @updatedAt
 }
