@@ -6,12 +6,11 @@
  * TL;DR - This is where all the tRPC server stuff is created and plugged in. The pieces you will
  * need to use are documented accordingly near the end.
  */
-import { initTRPC } from "@trpc/server";
+import { TRPCError, initTRPC } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
 
 import { db } from "@/server/db";
-
 /**
  * 1. CONTEXT
  *
@@ -74,3 +73,15 @@ export const createTRPCRouter = t.router;
  * are logged in.
  */
 export const publicProcedure = t.procedure;
+
+
+export const checkSectret = t.middleware(async ({ ctx, next }) => {
+  const { headers } = ctx;
+  const secret = headers.get("referer")?.toString()?.split("?")[1]?.split("=")[1]
+  if (!secret || secret !== process.env.DASHBOARD_SECRET) {
+    throw new TRPCError({ code: "FORBIDDEN" });
+  }
+  return next({ ctx });
+});
+
+export const privateProcedure = t.procedure.use(checkSectret);

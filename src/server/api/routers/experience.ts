@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
+import { createTRPCRouter, privateProcedure, publicProcedure } from "@/server/api/trpc";
 import { experience } from '@/server/db/schema';
 
 
@@ -7,12 +7,12 @@ const newExperienceTypes = z.object({ order: z.number().min(1), title: z.string(
 
 export const experienceRouter = createTRPCRouter({
  getAll: publicProcedure.query(async ({ ctx }) => {
-  // await new Promise((resolve) => setTimeout(resolve, 5000));
   return ctx.db.query.experience.findMany({
    orderBy: (exp, { asc }) => [asc(exp.order)]
   })
  }),
- new: publicProcedure.input(newExperienceTypes).mutation(({ ctx, input }) => {
-  return ctx.db.insert(experience).values(input);
+ new: privateProcedure.input(newExperienceTypes).mutation(({ ctx, input }) => {
+  const { db } = ctx;
+  return db.insert(experience).values(input);
  })
 });
