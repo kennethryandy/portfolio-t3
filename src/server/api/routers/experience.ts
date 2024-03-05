@@ -9,7 +9,7 @@ export const experienceRouter = createTRPCRouter({
  getAll: publicProcedure.query(async ({ ctx }) => {
   return ctx.db.query.experience.findMany({
    orderBy: (exp, { asc }) => [asc(exp.order)]
-  })
+  });
  }),
  new: privateProcedure.input(newExperienceTypes).mutation(({ ctx, input }) => {
   const { db } = ctx;

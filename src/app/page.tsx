@@ -3,6 +3,7 @@ import {
   AboutSection,
   ExperienceLoading,
   ExperienceSection,
+  ProjectLoading,
   ProjectSection,
   ReachOutSection,
 } from "@/components/sections";
@@ -18,7 +19,9 @@ export default function Home() {
           <ExperienceSection />
         </Suspense>
 
-        <ProjectSection />
+        <Suspense fallback={<ProjectLoading />}>
+          <ProjectSection />
+        </Suspense>
 
         <ReachOutSection />
       </div>
