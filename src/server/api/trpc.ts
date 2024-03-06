@@ -11,6 +11,7 @@ import superjson from "superjson";
 import { ZodError } from "zod";
 
 import { db } from "@/server/db";
+import { env } from "@/env";
 /**
  * 1. CONTEXT
  *
@@ -76,6 +77,7 @@ export const publicProcedure = t.procedure;
 
 
 export const checkSectret = t.middleware(async ({ ctx, next }) => {
+  if (env.NODE_ENV === "development") return next({ ctx });
   const { headers } = ctx;
   const secret = headers.get("referer")?.toString()?.split("?")[1]?.split("=")[1]
   if (!secret || secret !== process.env.DASHBOARD_SECRET) {
