@@ -1,5 +1,6 @@
 import { createTRPCRouter } from "@/server/api/trpc";
-import { experienceRouter } from "./routers/experience";
+import { experienceRouter } from "./routers/experienceRouter";
+import { projectRouter } from "./routers/projectRouter";
 
 /**
  * This is the primary router for your server.
@@ -7,7 +8,8 @@ import { experienceRouter } from "./routers/experience";
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
-  experience: experienceRouter
+  experience: experienceRouter,
+  project: projectRouter
 });
 
 // export type definition of API
