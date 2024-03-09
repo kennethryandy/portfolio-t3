@@ -28,9 +28,10 @@ CREATE TABLE IF NOT EXISTS "project" (
 	"title" varchar(255),
 	"media_id" integer NOT NULL,
 	"description" text NOT NULL,
-	"url" varchar(255) NOT NULL,
+	"url" varchar(255),
 	"source_code" varchar(255) NOT NULL,
 	"type" varchar,
+	"technologies" varchar(255)[] NOT NULL,
 	"created_at" timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
 	"updated_at" timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
 	CONSTRAINT "project_order_unique" UNIQUE("order")

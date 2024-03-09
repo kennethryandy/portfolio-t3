@@ -1,5 +1,5 @@
 {
-  "id": "0a93eabd-656c-45ac-9676-cb61791c28bd",
+  "id": "a5ba989b-8ffa-4d42-83af-fe73346df948",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -178,7 +178,7 @@
           "name": "url",
           "type": "varchar(255)",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "source_code": {
           "name": "source_code",
@@ -191,6 +191,12 @@
           "type": "varchar",
           "primaryKey": false,
           "notNull": false
+        },
+        "technologies": {
+          "name": "technologies",
+          "type": "varchar(255)[]",
+          "primaryKey": false,
+          "notNull": true
         },
         "created_at": {
           "name": "created_at",

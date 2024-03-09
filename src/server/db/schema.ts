@@ -1,7 +1,7 @@
 // Example model schema from the Drizzle docs
 // https://orm.drizzle.team/docs/sql-schema-declaration
 
-import { sql } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
 import {
   integer,
   serial,
@@ -54,9 +54,19 @@ export const project = createTable("project", {
   title: varchar("title", { length: 255 }),
   image: integer("media_id").notNull().references(() => media.id),
   description: text("description").notNull(),
-  url: varchar("url", { length: 255 }).notNull(),
+  url: varchar("url", { length: 255 }),
   sourceCode: varchar("source_code", { length: 255 }).notNull(),
   type: varchar('type', { enum: ["featured", "archived"] }),
+  technologies: varchar("technologies", { length: 255 }).array().notNull(),
   createdAt: timestamp("created_at").default(sql`CURRENT_TIMESTAMP`).notNull(),
   updatedAt: timestamp("updated_at").default(sql`CURRENT_TIMESTAMP`).notNull()
 });
+
+export const projectRelation = relations(project, ({ one }) => {
+  return {
+    media: one(media, {
+      fields: [project.image],
+      references: [media.id]
+    })
+  }
+})
