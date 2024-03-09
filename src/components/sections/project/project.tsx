@@ -5,7 +5,9 @@ import { Badge } from "../../ui/badge";
 import { api } from "@/trpc/server";
 
 const ProjectSection: FC = async () => {
-  const projects = await api.experience.getAll.query();
+  const projects = await api.project.getAll.query();
+  console.log(projects);
+
   return (
     <section id="projects" className="section mb-28 lg:scroll-mt-28">
       <div className="block lg:hidden py-4 sticky -top-1 z-50 bg-background bg-opacity-85 backdrop-blur-sm -mx-6 px-6 border rounded-none border-b-0 border-x-0">
@@ -26,10 +28,10 @@ const ProjectSection: FC = async () => {
                     ratio={16 / 9}
                     className="bg-primary/25 rounded-md"
                   >
-                    {/* {project.image ? (
+                    {project.image ? (
                       <Image
-                        src={project.image.url}
-                        alt={project.image.alt}
+                        src={`/assets/projects/${project.media.fileName}`}
+                        alt={project.media.name}
                         fill
                         className="rounded-md object-cover transition border-2 group-hover:border-primary/25"
                       />
@@ -40,13 +42,7 @@ const ProjectSection: FC = async () => {
                         fill
                         className="rounded-md object-cover transition border-2 group-hover:border-primary/25"
                       />
-                      )} */}
-                    <Image
-                      src="/assets/placeholder.svg"
-                      alt="Placeholder"
-                      fill
-                      className="rounded-md object-cover transition border-2 group-hover:border-primary/25"
-                    />
+                    )}
                   </AspectRatio>
                 </div>
               </div>
